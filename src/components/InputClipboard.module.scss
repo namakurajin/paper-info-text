@@ -1,0 +1,19 @@
+
+.wrapper {
+  flex: 1;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.result {
+  flex: 1;
+  min-height: 40px;
+  padding: 8px;
+  border-bottom: 1px solid var(--main-color);
+  background-color: transparent;
+  outline: none;
+}

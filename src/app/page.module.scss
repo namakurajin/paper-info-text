@@ -1,0 +1,156 @@
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.mainHeading {
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  font-weight: bold;
+
+  @media (max-width: 640px) {
+    font-size: 1.8rem;
+  }
+}
+
+.result {
+  display: flex;
+  gap: 10px;
+
+  @media (min-width: 641px) {
+    align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    flex-flow: column;
+    position: sticky;
+    top: 20px;
+    z-index: 1;
+    padding: 16px;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+}
+
+// コンポーネントに分離しても良かったが、いまのところ1個しかないので
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  min-height: 40px;
+  color: var(--base-color);
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  transition-duration: 0.2s;
+  transition-property: filter;
+
+  @media (hover) {
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.options {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+
+  @media (max-width: 640px) {
+    flex-flow: column;
+  }
+}
+
+.option {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sections {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 640px) {
+    flex-flow: column;
+  }
+}
+
+.section {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  padding: 20px 32px;
+  border-radius: 0 10px 10px 10px;
+  border: 1px solid var(--main-color);
+
+  &::before {
+    position: absolute;
+    left: -1px;
+    top: calc(4px / 2 * -1);
+    content: '';
+    width: 200px;
+    height: 4px;
+    background-color: var(--main-color);
+  }
+
+  @media (min-width: 641px) {
+    &[data-section-id="author"] {
+      flex: 1;
+    }
+
+    &[data-section-id="paper"] {
+      width: calc((100% - 20px * (3 - 1)) / 3);
+    }
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    padding: 20px 16px;
+  }
+}
+
+.heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  @media (max-width: 640px) {
+    font-size: 1.6rem;
+  }
+}
+
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.author {
+  display: flex;
+  gap: 10px;
+  width: calc((100% - 20px * (2 - 1)) / 2);
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+}
+
+.addAuthorButtonWrapper {
+  margin-top: 17px;
+  width: calc(200px - 33px);
+}
+
+.paperInformationGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  & > div {
+    width: calc((100% - 10px * (3 - 1)) / 3);
+  }
+}

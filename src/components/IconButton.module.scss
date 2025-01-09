@@ -1,0 +1,32 @@
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 40px;
+  padding: 0 12px;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background-color: transparent;
+  transition-duration: 0.2s;
+  transition-property: filter;
+
+  @media (hover) {
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.icon {
+  width: 16px;
+
+  svg {
+    width: 100%;
+  }
+}

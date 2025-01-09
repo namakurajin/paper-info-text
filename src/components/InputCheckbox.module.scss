@@ -1,0 +1,25 @@
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  min-height: 40px;
+
+  @media (hover) {
+    cursor: pointer;
+  }
+
+  svg {
+    position: relative;
+    left: 1px;
+    top: -2px;
+    width: 16px;
+  }
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--main-color)
+}

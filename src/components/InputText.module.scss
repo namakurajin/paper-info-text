@@ -1,0 +1,26 @@
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.label {
+  font-size: 1.4rem;
+  color: var(--main-color);
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  color: var(--main-color);
+  border: 1px solid var(--sub-color);
+  border-radius: 4px;
+  // background-color: var(--sub-color);
+
+  &:focus {
+    border-color: var(--main-color);
+    outline: none;
+  }
+}
