@@ -1,5 +1,5 @@
 
-import { Clipboard, useClipboard } from '@ark-ui/react/clipboard'
+import { Clipboard } from '@ark-ui/react/clipboard'
 import { CheckIcon, ClipboardCopyIcon } from 'lucide-react'
 import styles from './InputClipboard.module.scss';
 
