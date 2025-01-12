@@ -119,7 +119,6 @@ export default function App() {
     if (result !== '') generateText(newData);
   }
 
-
   /**
    * 論文情報テキストを生成する。
    *
@@ -158,7 +157,11 @@ export default function App() {
     updated_result += ` ${paperInformation.paperVolume}`;
     updated_result += `(${paperInformation.paperIssue}),`;
     updated_result += ` ${paperInformation.paperPageStart}`;
-    updated_result += `-${paperInformation.paperPageEnd}`;
+
+    if (paperInformation.paperPageEnd !== '') {
+      updated_result += `-${paperInformation.paperPageEnd}`;
+    }
+
     updated_result += isAccepted ? ` (accepted)` : '';
 
     setResult(updated_result);
@@ -177,6 +180,13 @@ export default function App() {
     });
   }
 
+  /**
+   * 入力内容をクリアする。
+   */
+  function clear(): void {
+    location.reload();
+  }
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.mainHeading}>論文情報テキストを作成するツール</h1>
@@ -189,20 +199,30 @@ export default function App() {
         <InputClipboard value={result} onCopy={copyText} />
       </div>
 
-      <div className={styles.options}>
-        <div className={styles.option}>
-          <InputCheckbox
-            label="英語フォーマット"
-            name="isEnglish"
-            onChangeStatus={(name, checked) => updateOption(name, checked)}
-          />
+      <div className={styles.optionsWrapper}>
+        <div className={styles.options}>
+          <div className={styles.option}>
+            <InputCheckbox
+              label="英語フォーマット"
+              name="isEnglish"
+              onChangeStatus={(name, checked) => updateOption(name, checked)}
+            />
+          </div>
+
+          <div className={styles.option}>
+            <InputCheckbox
+              label="アクセプト論文"
+              name="isAccepted"
+              onChangeStatus={(name, checked) => updateOption(name, checked)}
+            />
+          </div>
         </div>
 
-        <div className={styles.option}>
-          <InputCheckbox
-            label="アクセプト論文"
-            name="isAccepted"
-            onChangeStatus={(name, checked) => updateOption(name, checked)}
+        <div>
+          <IconButton
+            iconType={'trash'}
+            label={`入力内容をクリアする`}
+            onClickButton={() => clear()}
           />
         </div>
       </div>
